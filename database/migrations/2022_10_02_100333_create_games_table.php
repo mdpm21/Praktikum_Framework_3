@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('goty', function (Blueprint $table) {
+        Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 30);
             $table->string('tahun', 30);
-            $table->string('pengembang', 30);
-            $table->string('penerbit', 30);
             $table->string('platform', 30);
+            $table->foreignId('pengembang_id');
             $table->timestamps();
+            $table->foreign('pengembang_id')->references('id')->on('publishers');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('goty');
+        Schema::dropIfExists('games');
     }
 };

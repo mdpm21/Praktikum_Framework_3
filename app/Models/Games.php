@@ -12,5 +12,5 @@ class Games extends Model
         return $this->belongsTo(Publisher::class, 'pengembang_id' );
         } 
         protected $table = "games";
-        protected $fillable = ['id', 'judul', 'tahun', 'penertbit', 'platform', 'pengembang_id'];
+        protected $fillable = ['id', 'judul', 'tahun', 'platform', 'pengembang_id'];
 }

@@ -11,7 +11,7 @@
   
   <body>
     <center><h1>Data Game of The Year</h1><center>
-    
+    <center><a href="{{route('create')}}">+  &nbsp;Tambah Data + &nbsp;</a><center>
 	
 
     <br/>
@@ -24,9 +24,9 @@
 			<th>Judul</th>
 			<th>Tahun</th>
 			<th>Pengembang</th>
-			<th>Penerbit</th>
-      <th>Mesin</th>
+      <!-- <th>Mesin</th> -->
 			<th>Platform</th>
+      <th>Aksi</th>
 			<!-- <th>Aksi</th> -->
         </tr>
     </thead>
@@ -39,9 +39,11 @@
             <td>{{ $game->judul }}</td>
             <td>{{ $game->tahun }}</td>
             <td>{{ $game->publisher->pengembang }}</td>
-            <td>{{ $game->penerbit }}</td>
-            <td>{{ $game->publisher->mesin }}</td>
+            <!-- <td>{{ $game->publisher->mesin }}</td> -->
             <td>{{ $game->platform }}</td>
+            <td>
+              <a href="/show/{{ $game->id }}" class="">Lihat</a>
+            </td>
             {{-- Cukup Panggil seperti di atas --}}
         </tr>
 
@@ -53,9 +55,9 @@
     <a href="{{ Auth::user() ? '/logout' : '/login' }}"  >
                     {{ Auth::user() ? 'Logout' : 'Login' }}
                 </a>
-    <!-- <a href="/"  >
+    <a style="margin-left: 12px;" href="/"  >
         Kembali
-    </a> -->
+    </a>
     
     <!-- <form action="logout.php" method="post">
         <button type="submit" name="logout">logout</button>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Games;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
 use App\Models\Publisher;
 
 /*
@@ -38,3 +39,11 @@ Route::get('/login', [AuthController::class, 'loginView'])->name("login");
 Route::post('/action-login', [AuthController::class, 'actionLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
+
+// Route::get('/games', [GameController::class, 'index'])->name('index');
+
+Route::get('/create', [GameController::class, 'create'])->name('create')->middleware('auth');
+
+Route::post('/store', [GameController::class, 'store'])->name('store')->middleware('auth');
+
+Route::get('/show/{id}', [GameController::class, 'show'])->name('show')->middleware('auth');
